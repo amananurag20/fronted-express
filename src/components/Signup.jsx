@@ -7,57 +7,59 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
 
-  const token=localStorage.getItem("token")
+  const token = localStorage.getItem("token");
 
-// const response=await fetch("http://localhost:5000", {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//     Authorization: `Bearer ${token}`,
-//   },
-//   body: JSON.stringify({
-//     name:name,
-//     password,
-//     mobile,
-//     email
-//   })
-// })
-// const data=await response.json()
+  // const response=await fetch("http://localhost:5000", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  //   body: JSON.stringify({
+  //     name:name,
+  //     password,
+  //     mobile,
+  //     email
+  //   })
+  // })
+  // const data=await response.json()
 
-
-
-
-  const handleSubmit=async()=>{
-
-    try{
-        const response= await axios.post("http://localhost:5000/signup",{
-            name,
-            email,
-            password,
-            mobile
-        });
-        console.log(response.data);
-        if(response.data.success){
-            alert("account created successfully")
-        }else{
-            alert(response.data.msg)
-        }
-
-    }catch(e){
-        console.log(e);
-        alert("something went wrong")
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post("http://localhost:5000/signup", {
+        name,
+        email,
+        password,
+        mobile,
+      });
+      console.log(response.data);
+      if (response.data.success) {
+        alert("account created successfully");
+      } else {
+        alert(response.data.msg);
+      }
+    } catch (e) {
+      console.log(e);
+      alert("something went wrong");
     }
 
-    console.log("form submitted")
-  }
+    console.log("form submitted");
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-700">
       <div className="w-full max-w-md p-8 bg-blue-100 rounded-lg shadow-xl">
-        <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Signup</h2>
+        <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">
+          Signup
+        </h2>
 
         <div className="mb-4">
-          <label htmlFor="name" className="block text-blue-900 font-semibold mb-1">Name</label>
+          <label
+            htmlFor="name"
+            className="block text-blue-900 font-semibold mb-1"
+          >
+            Name
+          </label>
           <input
             placeholder="Enter your name"
             id="name"
@@ -68,7 +70,12 @@ const Signup = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="email" className="block text-blue-900 font-semibold mb-1">Email</label>
+          <label
+            htmlFor="email"
+            className="block text-blue-900 font-semibold mb-1"
+          >
+            Email
+          </label>
           <input
             placeholder="Enter your email"
             id="email"
@@ -79,7 +86,12 @@ const Signup = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="mobile" className="block text-blue-900 font-semibold mb-1">Mobile No.</label>
+          <label
+            htmlFor="mobile"
+            className="block text-blue-900 font-semibold mb-1"
+          >
+            Mobile No.
+          </label>
           <input
             placeholder="Mobile no"
             id="mobile"
@@ -90,7 +102,12 @@ const Signup = () => {
         </div>
 
         <div className="mb-6">
-          <label htmlFor="password" className="block text-blue-900 font-semibold mb-1">Password</label>
+          <label
+            htmlFor="password"
+            className="block text-blue-900 font-semibold mb-1"
+          >
+            Password
+          </label>
           <input
             placeholder="Enter your password"
             id="password"
