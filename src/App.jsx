@@ -3,6 +3,9 @@ import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import Food from './components/Food'
+import Admin from './components/Admin'
+import Mobile from './components/Mobile'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const App = () => {
   return (
@@ -10,7 +13,11 @@ const App = () => {
      <Routes>
        <Route path="/signup" element={<Signup/>}/>
        <Route path="/login" element={<Login/>}/>
-       <Route path="/foods" element={<Food/>}/>
+
+       <Route path="/" element={<ProtectedRoute/>}>
+          <Route path="/foods" element={<Food/>}/> 
+               
+       </Route>
      </Routes>
    </BrowserRouter>
   )
