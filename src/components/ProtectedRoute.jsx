@@ -14,7 +14,7 @@ const ProtectedRoute = () => {
 
             try{
                 const {data}= await axios.get("http://localhost:5000/check-token",{
-                 withCredential:true
+                 withCredentials:true
                 });
                  if(data.success){
                     setIsAuthenticated(true);
