@@ -18,14 +18,13 @@ const ProtectedRoute = () => {
                 });
                  if(data.success){
                     setIsAuthenticated(true);
-                 };
-                 setLoading(false);
-
-                
+                 };         
 
             }catch(e){
                 console.log(e);
-                 setLoading(false);
+                 
+            }finally{
+               setLoading(false);
             }
         }
 
